@@ -98,29 +98,37 @@ document.drawGrid=function(gridSizeValue){
     var cellCount=0;
     var table=document.getElementById("GridLayout");
     var row=table.insertRow(rowNum);
-   alert("table creating");
+   
         for(var i=0;i<gridTotal;i++){
-            if(i<gridSizeArr[0]){
-                row.insertCell(colNum).innerHTML="<input type='button' value='"+document.getRandomNumber(gridTotal)+"' id='butt"+i+"/>";
+            if(colNum<gridSizeArr[0]){
+                if(cellCount<gridTotal-1){
+                    row.insertCell(colNum).innerHTML="<input type='button' value='"+document.getRandomNumber(gridTotal)+"' id=butt'"+i+"'/>";
+                }else{
+                    row.insertCell(colNum).innerHTML="<input type='button' value=' ' id=butt'"+i+"'/>";
+                }
                 cellCount++;
                 colNum++;
             }
-            if(colNum>=gridSizeArr[0]-1){
+            if(colNum>=gridSizeArr[0]){
                 row=table.insertRow(++rowNum);
                 colNum=0;
             }
             
         }
-        alert("dome");   
+           
   
 };
 document.getRandomNumber=function(gridSizeValue){
-    while(5){
+    var count=0;
+    while(1){
         var randomNum=Math.floor(Math.random() * (gridSizeValue - 1) + 1);
         if(gridNums.indexOf(randomNum)===-1){
             gridNums.push(randomNum);
+            alert(randomNum);
+            
             return randomNum;
         }
+        //count++;
     }
 };
 // Just a bunch of useful debug console.log() messages.
