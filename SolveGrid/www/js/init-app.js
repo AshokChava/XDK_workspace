@@ -107,20 +107,23 @@ document.drawGrid=function(gridSizeValue){
     var cellCount=0;
     var table=document.getElementById("GridLayout");
     var row=table.insertRow(rowNum);
-   alert(gridTotal);
+
+
+
         for(var i=1;i<=gridTotal;i++){
             if(colNum<=gridSizeArr[0]){
                 if(cellCount<gridTotal-1){
                     var randomNum=document.getRandomNumber(gridTotal);
-                    row.insertCell(colNum).innerHTML="<button class='btn btn-primary btn-block' onClick='playMove(this.id)' value='"+randomNum+"' id='"+(rowNum+1)+"-"+(colNum+1)+"'>"+randomNum+"</button>";
+                    row.insertCell(colNum).innerHTML="<button  style='width:100%;height:100%;' class='btn btn-block btn-primary' onClick='playMove(this.id)' value='"+randomNum+"' id='"+(rowNum+1)+"-"+(colNum+1)+"'>"+randomNum+"</button>";
                 }else{
-                    row.insertCell(colNum).innerHTML="<button class='btn btn-primary btn-block' onClick='playMove(this.id)' value='' id='"+(rowNum+1)+"-"+(colNum+1)+"'></button>";
+                    row.insertCell(colNum).innerHTML="<button  style='width:100%;height:100%;' class='btn btn-block btn-primary' onClick='playMove(this.id)' value='' id='"+(rowNum+1)+"-"+(colNum+1)+"'></button>";
                 }
                 cellCount++;
                 colNum++;
             }
             if(cellCount<gridTotal&&colNum>=gridSizeArr[0]){
                 row=table.insertRow(++rowNum);
+
                 colNum=0;
 
             }
@@ -160,7 +163,7 @@ document.playMove=function(clickedId){
         freeSlot=document.getFreeSlot();
     }
     var validMoves=document.getValidMoves(clickedId,freeSlot,gridRowSize,gridColSize);
-    alert(freeSlot);
+   // alert(freeSlot);
     if(validMoves.indexOf(clickedId)>=0){
         //alert(clickedId+"--"+document.getElementById(clickedId).value);
         //alert(freeSlot+"--"+document.getElementById(freeSlot).value);
@@ -170,6 +173,7 @@ document.playMove=function(clickedId){
         document.getElementById(clickedId).value=" ";
         document.getElementById(clickedId).innerHTML=" ";
         freeSlot=clickedId;
+        document.getElementById("moveCountValue").innerHTML="Move Count: <b>"+moveCount+"</b>";
     }
     return false;
 

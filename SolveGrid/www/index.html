@@ -68,17 +68,29 @@
         <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
         <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
         <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
-        <div class="upage vertical-col left" id="mainpage">
+        <div class="upage vertical-col left  table-responsive" id="mainpage">
+            <br/><br/>
             <label value="Grid Size">Grid Size</label>
             <select id="gridSizeValue">
                 <option vallue="4X4">4X4</option>
                 <option value="5X5">5X5</option>
+                <option value="6X6">6X6</option>
+                <option value="7X7">7X7</option>
+                <option value="8X8">8X8</option>
             </select>
+            <br/>
             <input type="button" value="Start" onclick="formGrid()">
 
             <br/><br/>
-            <table><tbody id="GridLayout"></tbody></table>
+
+                <table style="height:60%;width:100%" class="table-responsive"><tbody id="GridLayout"></tbody></table>
+            <br/><br/>
+            <div id="moveCountValue">
+            <b>Move Count:0</b>
         </div>
+        </div>
+
+
 
     </body>
 
